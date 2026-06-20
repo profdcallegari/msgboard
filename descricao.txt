@@ -1,0 +1,26 @@
+=================
+msgboard
+=================
+
+Objetivo:
+Uma aplicação web que permite aos usuários enviar e receber mensagens curtas (max 50 caracteres).
+
+Funcionalidades:
+- criar conta (email e senha)
+- fazer login
+- enviar mensagem para um usuário específico (escolher dentre usuários cadastrados e digitar mensagem)
+- ler mensagens enviadas por outros usuários (página padrão ao logar)
+- receptor pode marcar uma mensagem como lida (toggle)
+- emissor pode ver mensagens enviadas e se já foram lidas ou não
+- logout
+
+Detalhes:
+- O sistema deve ser desenvolvido em Java com Vaadin
+- O sistema não deve utilizar banco de dados, as informações devem ser armazenadas em memória.
+- As mensagens devem ser armazenadas em uma estrutura de dados adequada, com datahora de envio e datahora de leitura.
+- O sistema deverá iniciar com 5 usuários já criados: demo1, demo2, demo3, demo4, demo5 (todos com a senha "123").
+- Não usar outras dependências além do Vaadin.
+- Uso de lambda expressions é obrigatório.
+
+=================
+
