@@ -16,6 +16,7 @@ import java.util.Map;
 @Route("enviar-mensagem")
 public class TelaEnviarMensagem extends VerticalLayout {
     private final ServicoAutenticacao servicoAutenticacao;
+    @SuppressWarnings("unused")
     private final ServicoMensagem servicoMensagem;
 
     public TelaEnviarMensagem(ServicoAutenticacao servicoAutenticacao, ServicoMensagem servicoMensagem) {

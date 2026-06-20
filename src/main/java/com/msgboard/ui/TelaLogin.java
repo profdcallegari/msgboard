@@ -11,6 +11,7 @@ import com.vaadin.flow.router.RouterLink;
 
 @Route("")
 public class TelaLogin extends VerticalLayout {
+    @SuppressWarnings("unused")
     private final ServicoAutenticacao servicoAutenticacao;
 
     public TelaLogin(ServicoAutenticacao servicoAutenticacao) {

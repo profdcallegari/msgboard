@@ -10,6 +10,7 @@ import com.vaadin.flow.router.Route;
 
 @Route("registro")
 public class TelaRegistro extends VerticalLayout {
+    @SuppressWarnings("unused")
     private final ServicoAutenticacao servicoAutenticacao;
 
     public TelaRegistro(ServicoAutenticacao servicoAutenticacao) {
