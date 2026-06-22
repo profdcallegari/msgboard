@@ -1,6 +1,7 @@
 package com.msgboard.servico;
 
 import com.msgboard.modelo.Usuario;
+import com.vaadin.flow.server.VaadinSession;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -10,8 +11,8 @@ import java.util.function.Predicate;
 
 @Service
 public class ServicoAutenticacao {
+    private static final String SESSION_KEY = "usuarioLogado";
     private final Map<String, Usuario> usuarios;
-    private Usuario usuarioLogado;
 
     public ServicoAutenticacao() {
         this.usuarios = new HashMap<>();
@@ -35,20 +36,25 @@ public class ServicoAutenticacao {
                 .filter(u -> u.getEmail().equals(email) && u.getSenha().equals(senha))
                 .findFirst();
 
-        usuarioEncontrado.ifPresent(u -> usuarioLogado = u);
+        usuarioEncontrado.ifPresent(u -> VaadinSession.getCurrent().setAttribute(SESSION_KEY, u));
         return usuarioEncontrado.orElseThrow(() -> new RuntimeException("Credenciais inválidas"));
     }
 
     public void logout() {
-        usuarioLogado = null;
+        VaadinSession session = VaadinSession.getCurrent();
+        if (session != null) {
+            session.setAttribute(SESSION_KEY, null);
+        }
     }
 
     public Usuario getUsuarioLogado() {
-        return usuarioLogado;
+        VaadinSession session = VaadinSession.getCurrent();
+        if (session == null) return null;
+        return (Usuario) session.getAttribute(SESSION_KEY);
     }
 
     public boolean estaLogado() {
-        return usuarioLogado != null;
+        return getUsuarioLogado() != null;
     }
 
     public Usuario buscarUsuarioPorId(String id) {

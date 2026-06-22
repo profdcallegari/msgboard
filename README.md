@@ -41,11 +41,15 @@ Uma aplicação web que permite aos usuários enviar e receber mensagens curtas 
 
 1. Clone o repositório
 2. Navegue até o diretório do projeto
-3. Execute o projeto com Maven:
+3. Compile o projeto com Maven:
+   ```bash
+   mvn clean install
+   ```
+4. Execute o projeto com Maven:
    ```bash
    mvn spring-boot:run
    ```
-4. Acesse a aplicação no navegador (geralmente em `http://localhost:8080`)
+5. Acesse a aplicação no navegador (geralmente em `http://localhost:8080`)
 
 ## Licença
 
